@@ -40,6 +40,14 @@ Cada avance del proyecto será documentado en esta sección, reflejando el progr
 - Los commits deben incluir el **nombre del autor** que realizó el cambio.  
 - Cada tarea debe marcarse como **pendiente, en progreso o completada**, de acuerdo con el estado actual del desarrollo.  
 
+## Metodologia de trabajo:
+Para dividir el trabajo se dividira por componentes ej
+SideBar: Estefany.
+Navar: Santiago pinzon.
+Cards: Cristian Giraldo.
+
+Para crear los componentes se utilizaran carpetas dentro de app, dentro de la carpeta components las cuales van a contener el module.css, el jsx y cualquier archivo necesario para que el componente funcione
+
 ### Clase 1
 - **Fecha**: [20/08/2025]
 - **Objetivos**:
@@ -50,6 +58,7 @@ Cada avance del proyecto será documentado en esta sección, reflejando el progr
   
 - **Avances**:
   -  [completo] [Tarea completada 1] - Responsable: [Grupo_trabajo] - Commit: [Definicion de: Nombre   proyecto-Descripcion-Integrantes-Caracteristicas actualizacion en el Readme]
+  - [completo] [Tarea completada 2] - Responsable: [Grupo_trabajo] - Commit: [Crear la carpeta donde iran los componentes]
 
 - **En progreso**:
   -  [Tarea en progreso] - Responsable: [Grupo_trabajo] - Commit: [Definicion de trabajo]
