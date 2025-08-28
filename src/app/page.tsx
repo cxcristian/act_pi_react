@@ -1,36 +1,36 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { getMovies, Movie } from "@/api/moviesApi";
-import MovieList from "../app/components/Cards/Catalogo/Catalogo"
+import MovieList from "@/app/components/Cards/Catalogo/Catalogo";
 
-export default function Page() {
-  const [movies, setMovies] = useState<Movie[]>([]);
+
+export default function Home() {
+  const [moviess, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<boolean | string>(false);
 
   useEffect(() => {
     async function fetchMovies() {
-      try {
+      try{
         const data = await getMovies();
         setMovies(data);
-      } catch (err) {
-        setError("No se pudieron cargar las películas");
-      } finally {
+      }catch(error){
+        setError("Error al cargar las peliculas");
+      }finally{
         setLoading(false);
       }
     }
-    fetchMovies();
-  }, []);
+    fetchMovies()
+  },[])
 
-  if (loading) return <p>Cargando películas...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
+  if (loading === true) {
+    return <p>Cargando Peliculas</p>
+  }
+  if(error ===true){
+    return <p>{error}</p>
+  }
 
   return (
-    <div>
-      <h1 style={{ textAlign: "center", margin: "20px 0" }}>
-        🎬 Catálogo de Películas
-      </h1>
-      <MovieList movies={movies} />
-    </div>
-  );
+    <MovieList movies={moviess}> </MovieList> 
+  )
 }

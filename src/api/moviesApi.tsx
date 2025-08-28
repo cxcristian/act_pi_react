@@ -4,7 +4,7 @@ const API_URL = "https://68acd091b996fea1c08af3e7.mockapi.io/peliculas";
 
 // Interfaz de película basada en el schema real de tu API
 export interface Movie {
-  id?: string;         // Generado automáticamente por la API
+  id: string;         // Generado automáticamente por la API
   Link: string;        // URL de la portada
   Name: string;        // Nombre de la película
   Year: number;        // Año
