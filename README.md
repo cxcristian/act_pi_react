@@ -83,8 +83,8 @@ Para crear los componentes se utilizaran carpetas dentro de app, dentro de la ca
   - ✅ [Tarea completada 2] - Responsable: [Cristian] - Commit: Creacion de las carpetas components-api y el archivo moviesApi.js.
   - ✅ [Tarea completada 3] - Responsable: [Cristian] - Commit: Sincronizacion con el fork original admeas de dar la informacion a info.json
     ✅ [Tarea completada 4] - Responsable: [Santiago] - Commit: se crea componente navbar y se genera codigo en loyaut y page.js para vista inicial
-  - ✅ [Tarea completada 5] - Responsable: [Nombre] - Commit: Creacion de la api en mockappi.io https://68acd091b996fea1c08af3e7.mockapi.io/peliculas y se crea el archivo "moviesApi.tsx con el codigo para realzar las peticiones
-
+  - ✅ [Tarea completada 5] - Responsable: [Santiago] - Commit: Creacion de la api en mockappi.io https://68acd091b996fea1c08af3e7.mockapi.io/peliculas y se crea el archivo "moviesApi.tsx con el codigo para realzar las peticiones
+  - ✅ [Tarea completada 5] - Responsable: [Cristian] - Commit: Creacion de los componentes catalogo y cards, y unificacion de la api.
 - **En progreso**:
   - 🔄 [Tarea en progreso] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
 - **Pendiente**:
