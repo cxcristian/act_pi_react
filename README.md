@@ -68,7 +68,7 @@ Para crear los componentes se utilizaran carpetas dentro de app, dentro de la ca
   - [Hoy se definio la idea principal del proyecto y se **actualizo** el repositorio principal]
 
 ### Clase 2
-- **Fecha**: [25/08/2025- / 7/08/2025]
+- **Fecha**: [25/08/2025-/7/08/2025]
 - **Objetivos**:
   - sincronizar con el fork original y guardar la informacion.
   - Crear el plan de acción.
@@ -84,9 +84,8 @@ Para crear los componentes se utilizaran carpetas dentro de app, dentro de la ca
   - ✅ [Tarea completada 3] - Responsable: [Cristian] - Commit: Sincronizacion con el fork original admeas de dar la informacion a info.json
     ✅ [Tarea completada 4] - Responsable: [Santiago] - Commit: se crea componente navbar y se genera codigo en loyaut y page.js para vista inicial
   - ✅ [Tarea completada 5] - Responsable: [Nombre] - Commit: Creacion de la api en mockappi.io https://68acd091b996fea1c08af3e7.mockapi.io/peliculas
-  - ✅ [Tarea completada ] - Responsable: [Nombre] - Commit: [Hash o descripción del commit] testeo prueba 3
-- **En progreso**:
 
+- **En progreso**:
   - 🔄 [Tarea en progreso] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
 - **Pendiente**:
   - ⏳ [Tarea pendiente] - Responsable: [Nombre]
