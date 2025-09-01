@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import styles from "./NavBar.module.css";
 
 export default function Navbar() {
   const [showForm, setShowForm] = useState(false);
@@ -10,96 +11,59 @@ export default function Navbar() {
   const toggleForm = () => setShowForm(!showForm);
 
   return (
-    <nav className="flex items-center justify-between p-4 bg-gray-500 text-white shadow-md">
+    <nav className={styles.navbar}>
       {/* Logo */}
-      <div className="flex items-center gap-2">
+      <div className={styles.logoContainer}>
         <Image
           src="/img/logo.png"
           alt="logo"
-          width={100}
-          height={100}
-          className="object-contain"
+          width={80}
+          height={80}
+          className={styles.logo}
         />
-        <h1 className="text-xl font-bold font-[Arial]">Rate Movies</h1>
+        <h1 className={styles.title}>Rate Movies</h1>
       </div>
 
       {/* Contenedor de búsqueda y botón agregar */}
-      <div className="flex items-center gap-3">
-        {/* Barra de búsqueda */}
+      <div className={styles.actions}>
         <input
           type="text"
           placeholder="Ingresa una película"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="p-2 border rounded-md text-black w-64 bg-white placeholder-gray-500"
+          className={styles.input}
         />
-        <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white">
-          Buscar
-        </button>
-
-        {/* Botón para abrir formulario */}
-        <button
-          onClick={toggleForm}
-          className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded"
-        >
+        <button className={styles.searchBtn}>Buscar</button>
+        <button onClick={toggleForm} className={styles.addBtn}>
           Agregar Película
         </button>
       </div>
 
       {/* Modal del formulario */}
       {showForm && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-md w-96">
-            <h2 className="text-xl font-bold mb-4 text-black">Nueva Película</h2>
-            <form className="flex flex-col gap-3">
-              <input
-                type="text"
-                placeholder="Enlace portada"
-                className="border p-2 rounded text-black"
-              />
-              <input
-                type="text"
-                placeholder="Nombre"
-                className="border p-2 rounded text-black"
-              />
-               <input
-                type="number"
-                placeholder="Año"
-                className="border p-2 rounded text-black"
-              />
-              <input
-                type="text"
-                placeholder="Género"
-                className="border p-2 rounded text-black"
-              />
-              <textarea
-                placeholder="Descripción"
-                className="border p-2 rounded text-black"
-              />
+        <div className={styles.modalBackdrop}>
+          <div className={styles.modal}>
+            <h2 className={styles.modalTitle}>Nueva Película</h2>
+            <form className={styles.form}>
+              <input type="text" placeholder="Enlace portada" className={styles.formInput} />
+              <input type="text" placeholder="Nombre" className={styles.formInput} />
+              <input type="number" placeholder="Año" className={styles.formInput} />
+              <input type="text" placeholder="Género" className={styles.formInput} />
+              <textarea placeholder="Descripción" className={styles.formInput} />
               <input
                 type="number"
                 placeholder="Calificación (1-10)"
                 min="1"
                 max="10"
-                className="border p-2 rounded text-black"
+                className={styles.formInput}
               />
-              <textarea
-                placeholder="Comentarios"
-                className="border p-2 rounded text-black"
-              />
+              <textarea placeholder="Comentarios" className={styles.formInput} />
 
-              <div className="flex justify-end gap-2 mt-2">
-                <button
-                  type="button"
-                  onClick={toggleForm}
-                  className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-600"
-                >
+              <div className={styles.modalActions}>
+                <button type="button" onClick={toggleForm} className={styles.cancelBtn}>
                   Cancelar
                 </button>
-                <button
-                  type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded text-white"
-                >
+                <button type="submit" className={styles.saveBtn}>
                   Guardar
                 </button>
               </div>

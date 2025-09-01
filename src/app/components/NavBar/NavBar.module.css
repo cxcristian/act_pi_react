@@ -1,0 +1,138 @@
+/* Navbar principal */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #6b7280; /* gris */
+  color: white;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Logo y título */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor acciones */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 250px;
+  color: black;
+  background-color: white;
+}
+
+.searchBtn {
+  background-color: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  background-color: #1d4ed8;
+}
+
+.addBtn {
+  background-color: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Modal */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  width: 380px;
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: black;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formInput {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 6px;
+  color: black;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.cancelBtn,
+.saveBtn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.cancelBtn {
+  background-color: #3b82f6;
+}
+
+.cancelBtn:hover {
+  background-color: #2563eb;
+}
+
+.saveBtn {
+  background-color: #1d4ed8;
+}
+
+.saveBtn:hover {
+  background-color: #1e40af;
+}

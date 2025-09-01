@@ -1,8 +1,8 @@
 .card {
-  border: 1px solid #ddd;
+  border: 1px solid #0c0c0c;
   border-radius: 8px;
   padding: 12px;
-  background-color: #fff;
+  background-color: #b3b1b1;
   box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
   width: 280px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -24,28 +24,30 @@
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
+  color: black
 }
 
 .meta {
   font-size: 14px;
-  color: #666;
+  color: #070707;
   font-style: italic;
 }
 
 .description {
   font-size: 14px;
   margin-top: 8px;
-  color: #333;
+  color: #1b1a1a;
 }
 
 .score {
   font-size: 15px;
   font-weight: bold;
   margin-top: 8px;
+  color: rgb(97, 95, 245);
 }
 
 .comments {
   font-size: 12px;
-  color: #555;
+  color: #0a0a0a;
   margin-top: 6px;
 }
