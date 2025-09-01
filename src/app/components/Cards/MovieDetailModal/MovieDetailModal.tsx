@@ -23,15 +23,14 @@ export default function MovieDetailModal({ movie, onClose, onSave }: Props) {
   };
 
   const handleCancel = () => {
-    setFormData(movie); // resetea cambios no guardados
+    setFormData(movie);
     setIsEditing(false);
   };
 
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        <button className={styles.closeBtn} onClick={onClose}>✖</button>
-
+        
         {isEditing ? (
           <div className={styles.form}>
             <input name="Link" value={formData.Link} onChange={handleChange} placeholder="Enlace portada" />
@@ -58,6 +57,8 @@ export default function MovieDetailModal({ movie, onClose, onSave }: Props) {
             <p><strong>Comentarios:</strong> {movie.Comments}</p>
 
             <button className={styles.editBtn} onClick={() => setIsEditing(true)}>Editar</button>
+            {/* Botón cerrar dentro del modal */}
+            <button className={styles.closeInsideBtn} onClick={onClose}>Cerrar</button>
           </div>
         )}
       </div>
