@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./MovieDetailModal.module.css";
-import { Movie } from "@/api/moviesApi"; 
+import { Movie, updateMovie } from "@/api/moviesApi"; 
 
 type Props = {
   movie: Movie;
@@ -17,9 +17,21 @@ export default function MovieDetailModal({ movie, onClose, onSave }: Props) {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSave = () => {
-    onSave(formData);
-    setIsEditing(false);
+  const handleSave = async () => {
+    try {
+      if (!movie.id) throw new Error("La película no tiene ID válido");
+
+      // Llamar a MockAPI para actualizar
+      const updated = await updateMovie(movie.id, formData);
+
+      // Notificar al padre con los datos ya actualizados
+      onSave(updated);
+
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error al guardar en MockAPI:", error);
+      alert("No se pudo guardar en el servidor 🚨");
+    }
   };
 
   const handleCancel = () => {
@@ -30,7 +42,6 @@ export default function MovieDetailModal({ movie, onClose, onSave }: Props) {
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        
         {isEditing ? (
           <div className={styles.form}>
             <input name="Link" value={formData.Link} onChange={handleChange} placeholder="Enlace portada" />
@@ -57,7 +68,6 @@ export default function MovieDetailModal({ movie, onClose, onSave }: Props) {
             <p><strong>Comentarios:</strong> {movie.Comments}</p>
 
             <button className={styles.editBtn} onClick={() => setIsEditing(true)}>Editar</button>
-            {/* Botón cerrar dentro del modal */}
             <button className={styles.closeInsideBtn} onClick={onClose}>Cerrar</button>
           </div>
         )}
