@@ -3,12 +3,57 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./NavBar.module.css";
+import { createMovie, Movie } from "@/api/moviesApi";
 
 export default function Navbar() {
   const [showForm, setShowForm] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Estado para los datos del formulario
+  const [formData, setFormData] = useState<Movie>({
+    Link: "",
+    Name: "",
+    Year: new Date().getFullYear(),
+    Genre: "",
+    Description: "",
+    Score: 1,
+    Comments: "",
+  });
+
   const toggleForm = () => setShowForm(!showForm);
+
+  // Manejar cambios en los inputs
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: name === "Year" || name === "Score" ? Number(value) : value,
+    }));
+  };
+
+  // Manejar envío del formulario
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await createMovie(formData);
+      alert("Película creada con éxito 🎉");
+      setFormData({
+        Link: "",
+        Name: "",
+        Year: new Date().getFullYear(),
+        Genre: "",
+        Description: "",
+        Score: 1,
+        Comments: "",
+      });
+      setShowForm(false);
+    } catch (error) {
+      console.error(error);
+      alert("Hubo un error al guardar la película ❌");
+    }
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -44,23 +89,76 @@ export default function Navbar() {
         <div className={styles.modalBackdrop}>
           <div className={styles.modal}>
             <h2 className={styles.modalTitle}>Nueva Película</h2>
-            <form className={styles.form}>
-              <input type="text" placeholder="Enlace portada" className={styles.formInput} />
-              <input type="text" placeholder="Nombre" className={styles.formInput} />
-              <input type="number" placeholder="Año" className={styles.formInput} />
-              <input type="text" placeholder="Género" className={styles.formInput} />
-              <textarea placeholder="Descripción" className={styles.formInput} />
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="Link"
+                placeholder="Enlace portada"
+                value={formData.Link}
+                onChange={handleChange}
+                className={styles.formInput}
+                required
+              />
+              <input
+                type="text"
+                name="Name"
+                placeholder="Nombre"
+                value={formData.Name}
+                onChange={handleChange}
+                className={styles.formInput}
+                required
+              />
               <input
                 type="number"
+                name="Year"
+                placeholder="Año"
+                value={formData.Year}
+                onChange={handleChange}
+                className={styles.formInput}
+                required
+              />
+              <input
+                type="text"
+                name="Genre"
+                placeholder="Género"
+                value={formData.Genre}
+                onChange={handleChange}
+                className={styles.formInput}
+                required
+              />
+              <textarea
+                name="Description"
+                placeholder="Descripción"
+                value={formData.Description}
+                onChange={handleChange}
+                className={styles.formInput}
+                required
+              />
+              <input
+                type="number"
+                name="Score"
                 placeholder="Calificación (1-10)"
                 min="1"
                 max="10"
+                value={formData.Score}
+                onChange={handleChange}
+                className={styles.formInput}
+                required
+              />
+              <textarea
+                name="Comments"
+                placeholder="Comentarios"
+                value={formData.Comments}
+                onChange={handleChange}
                 className={styles.formInput}
               />
-              <textarea placeholder="Comentarios" className={styles.formInput} />
 
               <div className={styles.modalActions}>
-                <button type="button" onClick={toggleForm} className={styles.cancelBtn}>
+                <button
+                  type="button"
+                  onClick={toggleForm}
+                  className={styles.cancelBtn}
+                >
                   Cancelar
                 </button>
                 <button type="submit" className={styles.saveBtn}>

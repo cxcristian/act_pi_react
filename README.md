@@ -93,8 +93,44 @@ Para crear los componentes se utilizaran carpetas dentro de app, dentro de la ca
   - [Descripción de problemas, soluciones o decisiones tomadas]
 
 ### Clase [N]
+- **Fecha**: [2/09/2025]
+- [Repetir estructura anterior]
+
+
+### Clase [N]
 - **Fecha**: [DD/MM/YYYY]
 - [Repetir estructura anterior]
+**Objetivos**:
+  - Darle la funcionalidad al formulario, para que suba los datos.
+- **Avances**:
+  - ✅ [Tarea completada 1] - Responsable: [Cristian] - Commit: Se le dio funcionalidad al boton guardar peliculas ubicado en el navBar
+  - ✅ [Tarea completada 2] - Responsable: [Cristian] - Commit: se actualizo el Readme
+  - **En progreso**:
+  - 🔄 [Tarea en progreso] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
+- **Pendiente**:
+  - ⏳ [Tarea pendiente] - Responsable: [Nombre]
+- **Notas**:
+  - [Descripción de problemas, soluciones o decisiones tomadas]
+
+
+### Clase [N]
+- **Fecha**: [DD/MM/YYYY]
+- [Repetir estructura anterior]
+**Objetivos**:
+  - Actualizacion de los componentes de NavBar
+  - Creacion para ver las Cards.
+- **Avances**:
+  - ✅ [Tarea completada 1] - Responsable: [Santiago] - Commit: Se actualiza el componente NavBar y se cambian los estilos a modules.css v2
+  - ✅ [Tarea completada 2] - Responsable: [Santiago] - Commit: Se crea el componente css y tambien se integra al codigo del componpente catalogo tsx, se hace integracion con e servidor local para actualizar la info de la api
+   - ✅ [Tarea completada 2] - Responsable: [Santiago] - Commit: Se actualizan algunos aspectos visuales de los componentes
+  - **En progreso**:
+  - 🔄 [Tarea en progreso] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
+- **Pendiente**:
+  - ⏳ [Tarea pendiente] - Responsable: [Nombre]
+- **Notas**:
+  - [Descripción de problemas, soluciones o decisiones tomadas]
+
+
 
 ## Contacto
 ### Información del Grupo
