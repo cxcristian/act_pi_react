@@ -95,15 +95,28 @@ Para crear los componentes se utilizaran carpetas dentro de app, dentro de la ca
 ### Clase [N]
 - **Fecha**: [2/09/2025]
 - [Repetir estructura anterior]
-
-
-### Clase [N]
-- **Fecha**: [DD/MM/YYYY]
-- [Repetir estructura anterior]
 **Objetivos**:
   - Darle la funcionalidad al formulario, para que suba los datos.
 - **Avances**:
   - ✅ [Tarea completada 1] - Responsable: [Cristian] - Commit: Se le dio funcionalidad al boton guardar peliculas ubicado en el navBar
+  - ✅ [Tarea completada 2] - Responsable: [Santiago] - Commit: se actualizo el Readme
+  - **En progreso**:
+  - ✅ [Tarea completada 3] - Responsable: [Santiago] - Commit: [se actualiza el componente Navbar y se le cambian los estilos a modulos CSS v.2]
+  - ✅ [Tarea completada 4] - Responsable: [Santiago] - Commit: [se crea el componente MovieDetailModal.tsx con  su componente CSS y también se integra al código del componente catalogo.tsx, se hace integración con el servidor local para actualizar la info de la Api]
+  - ✅ [Tarea completada 5] - Responsable: [Santiago] - Commit: [se actualizan algunos aspectos visuales de los componentes]
+- **Pendiente**:
+  - ⏳ [Tarea pendiente] - Responsable: [Nombre]
+- **Notas**:
+  - [Descripción de problemas, soluciones o decisiones tomadas]
+
+
+### Clase [N]
+- **Fecha**: [9/09/2025]
+- [Repetir estructura anterior]
+**Objetivos**:
+  - Se mejora la comunicacion de la app con la api
+- **Avances**:
+  - ✅ [Tarea completada 1] - Responsable: [Santiago] - Commit: se actualiza los componentes Catalogo.tsx y MovieDetailModal.tsx para una mejor integración con la api.
   - ✅ [Tarea completada 2] - Responsable: [Cristian] - Commit: se actualizo el Readme
   - **En progreso**:
   - 🔄 [Tarea en progreso] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
