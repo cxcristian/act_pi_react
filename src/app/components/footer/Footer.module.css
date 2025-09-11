@@ -1,0 +1,66 @@
+.footer {
+  background-color: #111827; /* gris oscuro */
+  color: #ffffff;
+  padding: 2rem 1rem;
+  margin-top: 2.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.copy {
+  font-size: 0.875rem;
+  color: #9ca3af; /* gris claro */
+}
+
+.social {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.icon {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+/* Efectos hover en cada red */
+.icon:nth-child(1):hover {
+  color: #3b82f6; /* Facebook */
+}
+.icon:nth-child(2):hover {
+  color: #ec4899; /* Instagram */
+}
+.icon:nth-child(3):hover {
+  color: #38bdf8; /* Twitter */
+}
+.icon:nth-child(4):hover {
+  color: #0ea5e9; /* LinkedIn */
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+  .brand {
+    text-align: left;
+    margin-bottom: 0;
+  }
+}
