@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 import styles from "./Footer.module.css";
 
 const Footer: React.FC = () => {
@@ -42,15 +42,8 @@ const Footer: React.FC = () => {
           >
             <Twitter size={28} />
           </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.icon}
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={28} />
-          </a>
+          
+        
         </div>
       </div>
     </footer>

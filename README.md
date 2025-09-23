@@ -135,7 +135,8 @@ Para crear los componentes se utilizaran carpetas dentro de app, dentro de la ca
 - **Avances**:
   - ✅ [Tarea completada 1] - Responsable: [Santiago] - Commit: Se actualiza el componente NavBar y se cambian los estilos a modules.css v2
   - ✅ [Tarea completada 2] - Responsable: [Santiago] - Commit: Se crea el componente css y tambien se integra al codigo del componpente catalogo tsx, se hace integracion con e servidor local para actualizar la info de la api
-   - ✅ [Tarea completada 2] - Responsable: [Santiago] - Commit: Se actualizan algunos aspectos visuales de los componentes
+  - ✅ [Tarea completada 3] - Responsable: [Santiago] - Commit: Se actualizan algunos aspectos visuales de los componentes
+  - ✅ [Tarea completada ] - Responsable: [Santiago] - Commit: se ajuste page.tsx y layout.tsx para mostrar un banner de inicio antes de ingresar al catalogo, se crea archivo inicio.css para mostrar el banner.
   - **En progreso**:
   - 🔄 [Tarea en progreso] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
 - **Pendiente**:
