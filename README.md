@@ -144,7 +144,22 @@ Para crear los componentes se utilizaran carpetas dentro de app, dentro de la ca
 - **Notas**:
   - [Descripción de problemas, soluciones o decisiones tomadas]
 
-
+### Clase [5]
+- **Fecha**: [22/09/2025]
+- [Repetir estructura anterior]
+**Objetivos**:
+  - Crear el boton de eliminar - Estefany
+  - Darle Funcionalidad a la barra de busqueda - Estefany
+  - Crear un Aside -Cristian
+  - Darle Mejor presentacion de inicio (como cuavana) - Santiago 
+- **Avances**:
+  - ✅ [Tarea completada 1] - Responsable: [] - Commit: 
+  - **En progreso**:
+  - 🔄 [Tarea en progreso] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
+- **Pendiente**:
+  - ⏳ [Tarea pendiente] - Responsable: [Nombre]
+- **Notas**:
+  - [Descripción de problemas, soluciones o decisiones tomadas]
 
 ## Contacto
 ### Información del Grupo
