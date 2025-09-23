@@ -153,11 +153,12 @@ Para crear los componentes se utilizaran carpetas dentro de app, dentro de la ca
   - Crear un Aside -Cristian
   - Darle Mejor presentacion de inicio (como cuavana) - Santiago 
 - **Avances**:
-  - ✅ [Tarea completada 1] - Responsable: [] - Commit: 
+  - ✅ [Tarea completada 1] - Responsable: [Cristian] - Commit:  Crear Aside
+  - ✅ [Tarea completada 1] - Responsable: [Santiago] - Commit:  Mejora visual y creacion del componente Movie Baner
   - **En progreso**:
-  - 🔄 [Tarea en progreso] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
+  - 🔄 [Tarea en progreso] - Responsable: [] - Commit: 
 - **Pendiente**:
-  - ⏳ [Tarea pendiente] - Responsable: [Nombre]
+  - ⏳ [Tarea pendiente] - Responsable: [Estefany]  En trabajo de boton eliminar y funcionalidad barra de bus
 - **Notas**:
   - [Descripción de problemas, soluciones o decisiones tomadas]
 
