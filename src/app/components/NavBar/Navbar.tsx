@@ -68,7 +68,6 @@ export default function Navbar() {
         />
         <h1 className={styles.title}>Rate Movies</h1>
       </div>
-
       {/* Contenedor de búsqueda y botón agregar */}
       <div className={styles.actions}>
         <input
