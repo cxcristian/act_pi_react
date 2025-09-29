@@ -1,6 +1,6 @@
 import MovieCard from "../MovieCard/MovieCard";
 import styles from "./Catalogo.module.css";
-import { updateMovie, Movie } from "@/api/moviesApi";
+import { updateMovie, deleteMovie, Movie } from "@/api/moviesApi"; 
 import { useState } from "react";
 import MovieDetailModal from "../MovieDetailModal/MovieDetailModal"; 
 
@@ -29,6 +29,17 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
       setSelectedMovie(result);
     } catch (error) {
       alert("Error al actualizar la película");
+      console.error(error);
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    try {
+      await deleteMovie(id);
+      setLocalMovies((prevMovies) => prevMovies.filter((m) => m.id !== id));
+      setSelectedMovie(null); // cerrar modal al eliminar
+    } catch (error) {
+      alert("Error al eliminar la película");
       console.error(error);
     }
   };
@@ -65,9 +76,10 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
 
       {selectedMovie && (
         <MovieDetailModal 
-          movie={selectedMovie} 
-          onClose={() => setSelectedMovie(null)} 
-          onSave={handleSave} 
+          movie={selectedMovie}
+          onClose={() => setSelectedMovie(null)}
+          onSave={handleSave}
+          onDelete={handleDelete} 
         />
       )}
     </div>

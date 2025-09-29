@@ -173,6 +173,7 @@ Para crear los componentes se utilizaran carpetas dentro de app, dentro de la ca
 - **Avances**:
   - ✅ [Tarea completada 1] - Responsable: [Cristian] - Commit:  
   - ✅ [Tarea completada 1] - Responsable: [Santiago] - Commit:"se realizan ajustes en el componente del banner para una mejor vista"
+  - ✅ [Tarea completada 1] - Responsable: [Santiago] - Commit: "implementacion del boton eliminar"
   - **En progreso**:
   - 🔄 [Tarea en progreso] - Responsable: [] - Commit: 
 - **Pendiente**:

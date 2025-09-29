@@ -1,14 +1,15 @@
 import { useState } from "react";
 import styles from "./MovieDetailModal.module.css";
-import { Movie, updateMovie } from "@/api/moviesApi"; 
+import { Movie, updateMovie, deleteMovie } from "@/api/moviesApi";
 
 type Props = {
   movie: Movie;
   onClose: () => void;
   onSave: (updatedMovie: Movie) => void;
+  onDelete: (id: string) => void; // 👉 nueva prop
 };
 
-export default function MovieDetailModal({ movie, onClose, onSave }: Props) {
+export default function MovieDetailModal({ movie, onClose, onSave, onDelete }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<Movie>(movie);
 
@@ -20,13 +21,8 @@ export default function MovieDetailModal({ movie, onClose, onSave }: Props) {
   const handleSave = async () => {
     try {
       if (!movie.id) throw new Error("La película no tiene ID válido");
-
-      // Llamar a MockAPI para actualizar
       const updated = await updateMovie(movie.id, formData);
-
-      // Notificar al padre con los datos ya actualizados
       onSave(updated);
-
       setIsEditing(false);
     } catch (error) {
       console.error("Error al guardar en MockAPI:", error);
@@ -37,6 +33,20 @@ export default function MovieDetailModal({ movie, onClose, onSave }: Props) {
   const handleCancel = () => {
     setFormData(movie);
     setIsEditing(false);
+  };
+
+  const handleDelete = async () => {
+    if (!movie.id) return;
+    if (!confirm(`¿Seguro que quieres eliminar "${movie.Name}"?`)) return;
+
+    try {
+      await deleteMovie(movie.id);
+      onDelete(movie.id); // 👉 actualiza la lista en el padre
+      onClose(); // 👉 cierra modal
+    } catch (error) {
+      console.error("Error eliminando en MockAPI:", error);
+      alert("No se pudo eliminar 🚨");
+    }
   };
 
   return (
@@ -68,6 +78,7 @@ export default function MovieDetailModal({ movie, onClose, onSave }: Props) {
             <p><strong>Comentarios:</strong> {movie.Comments}</p>
 
             <button className={styles.editBtn} onClick={() => setIsEditing(true)}>Editar</button>
+            <button className={styles.deleteBtn} onClick={handleDelete}>Eliminar</button>
             <button className={styles.closeInsideBtn} onClick={onClose}>Cerrar</button>
           </div>
         )}
