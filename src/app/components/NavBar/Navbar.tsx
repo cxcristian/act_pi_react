@@ -1,15 +1,17 @@
+
 "use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./NavBar.module.css";
-import { createMovie, Movie } from "@/api/moviesApi";
+import { createMovie, Movie, getMovies } from "@/api/moviesApi";
+import SearchModal from "./SerchModal";
 
 export default function Navbar() {
   const [showForm, setShowForm] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResult, setSearchResult] = useState<Movie | null>(null);
 
-  // Estado para los datos del formulario
   const [formData, setFormData] = useState<Movie>({
     Link: "",
     Name: "",
@@ -22,7 +24,6 @@ export default function Navbar() {
 
   const toggleForm = () => setShowForm(!showForm);
 
-  // Manejar cambios en los inputs
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -33,7 +34,6 @@ export default function Navbar() {
     }));
   };
 
-  // Manejar envío del formulario
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -52,6 +52,24 @@ export default function Navbar() {
     } catch (error) {
       console.error(error);
       alert("Hubo un error al guardar la película ❌");
+    }
+  };
+
+  // 🔹 Buscar película por nombre
+  const handleSearch = async () => {
+    try {
+      const movies = await getMovies(); // suponiendo que devuelve un array de películas
+      const found = movies.find(
+        (m) => m.Name.toLowerCase() === searchQuery.toLowerCase()
+      );
+      if (found) {
+        setSearchResult(found);
+      } else {
+        alert("Película no encontrada ❌");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error en la búsqueda ❌");
     }
   };
 
@@ -77,13 +95,15 @@ export default function Navbar() {
           onChange={(e) => setSearchQuery(e.target.value)}
           className={styles.input}
         />
-        <button className={styles.searchBtn}>Buscar</button>
+        <button onClick={handleSearch} className={styles.searchBtn}>
+          Buscar
+        </button>
         <button onClick={toggleForm} className={styles.addBtn}>
           Agregar Película
         </button>
       </div>
 
-      {/* Modal del formulario */}
+      {/* Modal de formulario */}
       {showForm && (
         <div className={styles.modalBackdrop}>
           <div className={styles.modal}>
@@ -167,6 +187,11 @@ export default function Navbar() {
             </form>
           </div>
         </div>
+      )}
+
+      {/* 🔹 Modal de búsqueda */}
+      {searchResult && (
+        <SearchModal movie={searchResult} onClose={() => setSearchResult(null)} />
       )}
     </nav>
   );

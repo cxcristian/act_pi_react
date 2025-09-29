@@ -1,0 +1,105 @@
+
+/* Fondo oscuro translúcido */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Contenedor del modal */
+.modal {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  position: relative;
+  animation: slideUp 0.35s ease-out;
+}
+
+/* Título */
+.modalTitle {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
+}
+
+/* Imagen de la película */
+.poster {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Texto de la info */
+.modal p {
+  margin: 0.5rem 0;
+  color: #333;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.modal p strong {
+  color: #111;
+  font-weight: 600;
+}
+
+/* Botón cerrar */
+.closeBtn {
+  margin-top: 1.5rem;
+  display: inline-block;
+  background: linear-gradient(135deg, #ff4d6d, #d62828);
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease-in-out;
+  width: 100%;
+  text-align: center;
+}
+
+.closeBtn:hover {
+  background: linear-gradient(135deg, #ff6b81, #e63946);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
