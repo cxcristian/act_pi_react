@@ -5,9 +5,16 @@ import { useState } from "react";
 import MovieDetailModal from "../MovieDetailModal/MovieDetailModal"; 
 
 export default function MovieList({ movies }: { movies: Movie[] }) {
-  // Copiamos las películas iniciales en un estado local
   const [localMovies, setLocalMovies] = useState<Movie[]>(movies);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+
+  // Agrupar películas por género
+  const moviesByGenre = localMovies.reduce((acc: Record<string, Movie[]>, movie) => {
+    const genre = movie.Genre || "Sin género";
+    if (!acc[genre]) acc[genre] = [];
+    acc[genre].push(movie);
+    return acc;
+  }, {});
 
   const handleSave = async (updatedMovie: Movie) => {
     try {
@@ -15,17 +22,10 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
         alert("La película no tiene ID válido");
         return;
       }
-
-      // Actualizar en la API
       const result = await updateMovie(updatedMovie.id, updatedMovie);
-      console.log("Película actualizada:", result);
-
-      // Refrescar el estado local para que el catálogo se actualice
       setLocalMovies((prevMovies) =>
         prevMovies.map((m) => (m.id === result.id ? result : m))
       );
-
-      // Actualizamos también el modal
       setSelectedMovie(result);
     } catch (error) {
       alert("Error al actualizar la película");
@@ -34,14 +34,34 @@ export default function MovieList({ movies }: { movies: Movie[] }) {
   };
 
   return (
-    <div className={styles.grid}>
-      {localMovies.map((movie) => (
-        <MovieCard 
-          key={movie.id ?? movie.Name} 
-          movie={movie} 
-          onSelect={() => setSelectedMovie(movie)} 
-        />
+    <div>
+      {/* Mostrar agrupadas por género */}
+      {Object.entries(moviesByGenre).map(([genre, movies]) => (
+        <div key={genre}>
+          <h2 className={styles.genreTitle}>{genre}</h2>
+          <div className={styles.grid}>
+            {movies.map((movie) => (
+              <MovieCard 
+                key={movie.id ?? movie.Name} 
+                movie={movie} 
+                onSelect={() => setSelectedMovie(movie)} 
+              />
+            ))}
+          </div>
+        </div>
       ))}
+
+      {/* Mostrar todas las películas abajo */}
+      <h2 className={styles.allTitle}>Todas las películas</h2>
+      <div className={styles.grid}>
+        {localMovies.map((movie) => (
+          <MovieCard 
+            key={movie.id ?? movie.Name} 
+            movie={movie} 
+            onSelect={() => setSelectedMovie(movie)} 
+          />
+        ))}
+      </div>
 
       {selectedMovie && (
         <MovieDetailModal 

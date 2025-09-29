@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import { getMovies, Movie } from "@/api/moviesApi";
 import MovieList from "../app/components/Cards/Catalogo/Catalogo";
+import MovieBanner from "../app/components/Banner/MovieBanner";
+import Aside from "../app/components/Aside/Aside";
+
 import "./inicio.css";
 
 export default function Page() {
@@ -51,10 +54,20 @@ export default function Page() {
 
   return (
     <div>
+      {/* Banner random */}
+      {movies.length > 0 && <MovieBanner movies={movies} />}
+
       <h1 style={{ textAlign: "center", margin: "20px 0" }}>
         🎬 Catálogo de Películas
       </h1>
-      <MovieList movies={movies} />
+      <div className="main-content">
+        <div className="catalogoColumn">
+          <MovieList movies={movies} />
+        </div>
+        <div className="movieColumn">
+          <Aside movies={movies} />
+        </div>
+      </div>
     </div>
   );
 }
