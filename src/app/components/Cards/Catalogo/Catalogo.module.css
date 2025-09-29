@@ -4,12 +4,40 @@
   gap: 20px;
   justify-items: center;
 }
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.navButton {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(128, 128, 128, 0.274);
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.navButton:hover {
+  background: rgba(128, 128, 128, 0.5);
+}
+
+.active {
+  background: #333;
+  color: white;
+}
+
 .genreTitle {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
-    text-align: center;
+  text-align: center;
   padding: 1.2rem;
   background-color: rgba(128, 128, 128, 0.274);
   border-radius: 20px;

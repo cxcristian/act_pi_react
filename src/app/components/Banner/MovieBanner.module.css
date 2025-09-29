@@ -2,41 +2,130 @@
   position: relative;
   width: 100%;
   height: 70vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: flex-end;
-  color: white;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
+/* capa de fondo (usa la poster como fondo) */
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45) saturate(0.95);
+  transform-origin: center;
+  transition: transform 0.8s ease;
+}
+
+/* overlay para contraste */
 .overlay {
-  width: 100%;
-  padding: 2rem;
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.8),  /* oscuro abajo */
-    rgba(0, 0, 0, 0.4),  /* semi transparente */
-    rgba(0, 0, 0, 0)     /* transparente arriba */
+    rgba(0, 0, 0, 0.65) 18%,
+    rgba(0, 0, 0, 0.2) 45%,
+    rgba(0, 0, 0, 0)
   );
+  pointer-events: none;
+}
+
+/* el contenido que hace fade (poster + info) */
+.content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  width: 86%;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+
+  /* estado por defecto (visible) */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+/* clase usada durante fade-out */
+.fade {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* poster (nítido, mantiene proporción) */
+.poster {
+  width: 260px;
+  min-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transform: translateZ(0);
+}
+
+/* info */
+.info {
+  color: white;
+  max-width: 720px;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  margin: 0 0 0.6rem;
+  line-height: 1.05;
 }
 
 .description {
-  font-size: 1.1rem;
-  max-width: 60%;
-  margin-bottom: 1rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  opacity: 0.95;
+  margin-bottom: 0.8rem;
+  max-height: 4.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .score {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #ffcc00;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* dots (navegación) */
+.dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 4;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, opacity 0.25s;
+  opacity: 0.7;
+}
+
+.dot:hover {
+  transform: scale(1.4);
+  opacity: 1;
+}
+
+.active {
+  background: #2563eb;
+  opacity: 1;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .content { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.25rem; }
+  .poster { width: 180px; }
+  .description { max-width: 100%; }
 }
